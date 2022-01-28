@@ -1,0 +1,104 @@
+Enter password: *********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.27 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bedadb             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| task3zummit        |
+| task7zummit        |
++--------------------+
+7 rows in set (0.01 sec)
+
+mysql> use task7zummit;
+Database changed
+mysql> describe table task7zummit;
++----+-------------+-------------+------------+------+---------------+------+---------+------+------+----------+-------+
+| id | select_type | table       | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |
++----+-------------+-------------+------------+------+---------------+------+---------+------+------+----------+-------+
+|  1 | SIMPLE      | task7zummit | NULL       | ALL  | NULL          | NULL | NULL    | NULL |    1 |   100.00 | NULL  |
++----+-------------+-------------+------------+------+---------------+------+---------+------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select * from task7zummit;
++-------+-----------+----------+------------+
+| sl_no | item_name | quantity | item_price |
++-------+-----------+----------+------------+
+|     1 | earphone  |       10 |       1500 |
++-------+-----------+----------+------------+
+1 row in set (0.00 sec)
+
+mysql> insert into task7zummit values(2,'charger',5,1000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into task7zummit values(3,'temperedglass',50,2500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from task7zummit;
++-------+---------------+----------+------------+
+| sl_no | item_name     | quantity | item_price |
++-------+---------------+----------+------------+
+|     1 | earphone      |       10 |       1500 |
+|     2 | charger       |        5 |       1000 |
+|     3 | temperedglass |       50 |       2500 |
++-------+---------------+----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into task7zummit values(4,'notebook',70,700);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into task7zummit values(5,'pythonbook',5,1000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from task7zummit;
++-------+---------------+----------+------------+
+| sl_no | item_name     | quantity | item_price |
++-------+---------------+----------+------------+
+|     1 | earphone      |       10 |       1500 |
+|     2 | charger       |        5 |       1000 |
+|     3 | temperedglass |       50 |       2500 |
+|     4 | notebook      |       70 |        700 |
+|     5 | pythonbook    |        5 |       1000 |
++-------+---------------+----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * from task7zummit ORDER BY item_name;
++-------+---------------+----------+------------+
+| sl_no | item_name     | quantity | item_price |
++-------+---------------+----------+------------+
+|     2 | charger       |        5 |       1000 |
+|     1 | earphone      |       10 |       1500 |
+|     4 | notebook      |       70 |        700 |
+|     5 | pythonbook    |        5 |       1000 |
+|     3 | temperedglass |       50 |       2500 |
++-------+---------------+----------+------------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT * from task7zummit ORDER BY item_name DESC;
++-------+---------------+----------+------------+
+| sl_no | item_name     | quantity | item_price |
++-------+---------------+----------+------------+
+|     3 | temperedglass |       50 |       2500 |
+|     5 | pythonbook    |        5 |       1000 |
+|     4 | notebook      |       70 |        700 |
+|     1 | earphone      |       10 |       1500 |
+|     2 | charger       |        5 |       1000 |
++-------+---------------+----------+------------+
+5 rows in set (0.00 sec)
+
+mysql>

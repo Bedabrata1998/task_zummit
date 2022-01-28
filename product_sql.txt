@@ -1,0 +1,89 @@
+Enter password: *********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.27 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database task3zummit;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> use task3zumit
+ERROR 1049 (42000): Unknown database 'task3zumit'
+mysql> use task3zumit;
+ERROR 1049 (42000): Unknown database 'task3zumit'
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bedadb             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| task3zummit        |
++--------------------+
+6 rows in set (0.03 sec)
+
+mysql> use task3zummit;
+Database changed
+mysql> show tables;
+Empty set (0.04 sec)
+
+mysql> create table task3zummit(sl_no int,product_name varchar(30),price int);
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> describe task3zummit;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| sl_no        | int         | YES  |     | NULL    |       |
+| product_name | varchar(30) | YES  |     | NULL    |       |
+| price        | int         | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+
+mysql> insert into task3zummit values(1,'umbrella',150);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from task3zummit;
++-------+--------------+-------+
+| sl_no | product_name | price |
++-------+--------------+-------+
+|     1 | umbrella     |   150 |
++-------+--------------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into task3zummit values(2,'mobile',6999);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from task3zummit;
++-------+--------------+-------+
+| sl_no | product_name | price |
++-------+--------------+-------+
+|     1 | umbrella     |   150 |
+|     2 | mobile       |  6999 |
++-------+--------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into task3zummit values(3,'laptop',48999);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from task3zummit;
++-------+--------------+-------+
+| sl_no | product_name | price |
++-------+--------------+-------+
+|     1 | umbrella     |   150 |
+|     2 | mobile       |  6999 |
+|     3 | laptop       | 48999 |
++-------+--------------+-------+
+3 rows in set (0.01 sec)
+
+mysql>
